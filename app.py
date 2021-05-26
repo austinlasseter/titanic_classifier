@@ -14,12 +14,10 @@ df=pd.read_csv('resources/final_probs.csv')
 
 
 ## Instantiante Dash
-app = dash.Dash()
-application = app.server
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
+server = app.server
 app.config['suppress_callback_exceptions'] = True
-app.css.append_css({
-    'external_url': 'https://codepen.io/chriddyp/pen/bWLwgP.css'
-})
 app.title='Titanic!'
 
 
@@ -159,12 +157,6 @@ def final_prediction(family, age, cabin, title, sex, embark):
 
 
 
-
-
-
-
-
-
 ####### Run the app #######
 if __name__ == '__main__':
-    application.run(debug=True, port=8080)
+    app.run_server(debug=True)
