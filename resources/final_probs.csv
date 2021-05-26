@@ -1,4 +1,4 @@
-Name,Siblings and Spouses,female,Cabin Class 2,Cabin Class 3,Cherbourg,Queenstown,"Age (20, 28]","Age (28, 38]","Age (38, 80]",Mrs.,Miss,VIP,Survived,survival_prob
+Name,Siblings and Spouses,female,Cabin Class 2,Cabin Class 3,Cherbourg,Queenstown,"Age (20, 28]","Age (28, 38]","Age (38, 80]",Mrs.,Miss,VIP,0,survival_prob
 "Sagesser, Mlle. Emma",0,1,0,0,1,0,1,0,0,0,1,0,1,0.9386907939406037
 "Eustis, Miss. Elizabeth Mussey",1,1,0,0,1,0,0,0,1,0,1,0,1,0.8475260335715196
 "Taussig, Mr. Emil",1,0,0,0,0,0,0,0,1,0,0,0,0,0.2764955091235027

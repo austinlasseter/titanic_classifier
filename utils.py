@@ -4,6 +4,7 @@ import plotly.graph_objs as go
 import pickle
 from sklearn.metrics import roc_auc_score
 from tabs.tab_2 import choices
+import json
 
 Viridis=[
 "#440154", "#440558", "#450a5c", "#450e60", "#451465", "#461969",
@@ -76,18 +77,12 @@ def display_eval_metrics(value):
     # Receiver Operating Characteristic (ROC): Area Under Curve
     elif value==choices[2]:
 
-        file = open('resources/y_test.pkl', 'rb')
-        y_test=pickle.load(file)
-        file.close()
-        file = open('resources/predictions.pkl', 'rb')
-        predictions=pickle.load(file)
-        file.close()
-        file = open('resources/FPR.pkl', 'rb')
-        FPR=pickle.load(file)
-        file.close()
-        file = open('resources/TPR.pkl', 'rb')
-        TPR=pickle.load(file)
-        file.close()
+        with open('resources/roc_dict.json') as json_file:
+            roc_dict = json.load(json_file)
+        FPR=roc_dict['FPR']
+        TPR=roc_dict['TPR']
+        y_test=pd.Series(roc_dict['y_test'])
+        predictions=roc_dict['predictions']
 
         roc_score=round(100*roc_auc_score(y_test, predictions),1)
         trace0=go.Scatter(
@@ -118,7 +113,7 @@ def display_eval_metrics(value):
         file = open('resources/y_test.pkl', 'rb')
         y_test=pickle.load(file)
         file.close()
-        cm=pd.read_pickle('resources/confusion_matrix.pkl')
+        cm=pd.read_csv('resources/confusion_matrix.csv')
         trace = go.Table(
             header=dict(values=cm.columns,
                         line = dict(color='#7D7F80'),
