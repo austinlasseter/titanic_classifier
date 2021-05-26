@@ -148,9 +148,6 @@ def final_prediction(family, age, cabin, title, sex, embark):
     thisarray=myarray.reshape((1, myarray.shape[0]))
     print('thisarray', thisarray)
 
-
-    # tryagain=np.array([4, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0])
-    # tryagain=tryagain.reshape((1, tryagain.shape[0]))
     prob=logreg.predict_proba(thisarray)
     final_prob=round(float(prob[0][1])*100,1)
     return(f'Probability of Survival: {final_prob}%')
