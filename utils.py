@@ -110,8 +110,11 @@ def display_eval_metrics(value):
 
     # Confusion Matrix
     elif value==choices[3]:
-        file = open('resources/y_test.pkl', 'rb')
-        y_test=pickle.load(file)
+        with open('resources/roc_dict.json') as json_file:
+            roc_dict = json.load(json_file)
+        FPR=roc_dict['FPR']
+        TPR=roc_dict['TPR']
+        y_test=pd.Series(roc_dict['y_test'])
         file.close()
         cm=pd.read_csv('resources/confusion_matrix.csv')
         trace = go.Table(
