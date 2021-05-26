@@ -1,4 +1,4 @@
-
+dash-table==4.1.0
 scikit-learn==0.24.2
 certifi==2019.6.16
 chardet==3.0.4
