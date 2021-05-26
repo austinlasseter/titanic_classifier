@@ -115,7 +115,7 @@ def display_eval_metrics(value):
         FPR=roc_dict['FPR']
         TPR=roc_dict['TPR']
         y_test=pd.Series(roc_dict['y_test'])
-        file.close()
+        
         cm=pd.read_csv('resources/confusion_matrix.csv')
         trace = go.Table(
             header=dict(values=cm.columns,
@@ -131,8 +131,7 @@ def display_eval_metrics(value):
             title = f'Logistic Regression Model (Testing Dataset)',
         )
 
-        data = [trace]
-        fig = dict(data=data, layout=layout)
+        fig = dict(data=[trace], layout=layout)
         return fig
 
     # Odds of Survival (Coefficients)
