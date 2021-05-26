@@ -25,7 +25,7 @@ def display_eval_metrics(value):
 
     ### Comparison of Possible Models
     if value==choices[0]:
-        compare_models=pd.read_pickle('resources/compare_models.pkl')
+        compare_models=pd.read_csv('resources/compare_models.csv', index_col=0)
         mydata1 = go.Bar(
             x=compare_models.loc['F1 score'].index,
             y=compare_models.loc['F1 score'],
