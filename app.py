@@ -76,6 +76,18 @@ def page_3_survival(value):
               [Input('page-3-dropdown', 'value')])
 def page_3_characteristics(value):
     mydata=df.drop(['Survived', 'survival_prob', 'Name'], axis=1)
+    mydata=df[['Siblings and Spouses',
+                 'female',
+                 'Cabin Class 2',
+                 'Cabin Class 3',
+                 'Cherbourg',
+                 'Queenstown',
+                 'Age (20, 28]',
+                 'Age (28, 38]',
+                 'Age (38, 80]',
+                 'Mrs.',
+                 'Miss',
+                 'VIP']]
     return html.Table(
         [html.Tr([html.Th(col) for col in mydata.columns])] +
         [html.Tr([
